@@ -19,12 +19,12 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private GameObject lookRightIndicator;// UI element to indicate looking right
     [SerializeField] private GameObject lookLeftIndicator;// UI element to indicate looking left
     [Header("Rotation Settings")]
-    [SerializeField] private float maxLookAngleX = 80f;// Maximum angle the player can look up or down
-    [SerializeField] private float minLookAngleX = -80f;// Minimum angle the player can look up or down
+    [SerializeField] private float maxLookAngle = 80f;// Maximum angle the player can look up or down
+    [SerializeField] private float minLookAngle = -80f;// Minimum angle the player can look up or down
     [SerializeField] private Transform transformY;// Reference to the player's body transform for Y-axis rotation
     void Update()
     {
-        TrackCursor();  
+        TrackCursor();
     }
     /// <summary>
     /// Track the mouse location on screen, displaying indicators when looking near the edges.
@@ -74,10 +74,10 @@ public class PlayerLook : MonoBehaviour
                 StartCoroutine(RotateCamera("down"));
                 break;
             case "left":
-                // playerBody.Rotate(Vector3.up * -mouseSensitivity * Time.deltaTime);
+                StartCoroutine(RotateCamera("left"));
                 break;
             case "right":
-                // playerBody.Rotate(Vector3.up * mouseSensitivity * Time.deltaTime);
+                StartCoroutine(RotateCamera("right"));
                 break;
         }
     }
@@ -89,26 +89,50 @@ public class PlayerLook : MonoBehaviour
         switch (direction)
         {
             case "up":
-                if (xRotation < maxLookAngleX)
+                if (xRotation < maxLookAngle)
                 {
-                    xRotation = maxLookAngleX;
+                    xRotation += maxLookAngle;
                     playerCamera.transform.localRotation = Quaternion.Euler(-xRotation, 0f, 0f);
                 }
                 else
                 {
-                    xRotation = maxLookAngleX;
+                    xRotation = maxLookAngle;
                 }
                 yield return null;
                 break;
             case "down":
-                if (xRotation > minLookAngleX)
+                if (xRotation > minLookAngle)
                 {
-                    xRotation = minLookAngleX;
+                    xRotation += minLookAngle;
                     playerCamera.transform.localRotation = Quaternion.Euler(-xRotation, 0f, 0f);
                 }
                 else
                 {
-                    xRotation = minLookAngleX;
+                    xRotation = minLookAngle;
+                }
+                yield return null;
+                break;
+            case "left":
+                if (zRotation < maxLookAngle)
+                {
+                    zRotation += maxLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(0f, zRotation, 0f);
+                }
+                else
+                {
+                    zRotation = maxLookAngle;
+                }
+                yield return null;
+                break;
+            case "right":
+                if (zRotation > minLookAngle)
+                {
+                    zRotation += minLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(0f, zRotation, 0f);
+                }
+                else
+                {
+                    zRotation = minLookAngle;
                 }
                 yield return null;
                 break;
