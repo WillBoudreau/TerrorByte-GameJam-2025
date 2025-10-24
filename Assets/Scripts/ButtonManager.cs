@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+
   public void OnPlayButton()
     {
         //Load Game Scene (Change to whatever the Game Scene is)
@@ -31,6 +32,25 @@ public class ButtonManager : MonoBehaviour
     {
         //From Options back to Main Menu
         SceneManager.LoadScene(0);
+    }
+
+    public void OnProgressButton()
+    {
+        //Progresses from Day scene to night scene
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "Game(Day)")
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        else
+        {
+            SceneManager.LoadScene(3);
+        }
+        
     }
 
 }
