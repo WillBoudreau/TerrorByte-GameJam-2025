@@ -5,17 +5,16 @@ public class InformationPanel : MonoBehaviour
 
     public GameObject uiPanel;
 
-    void Start()
+    private void Start()
     {
         uiPanel.SetActive(false);
     }
 
     void Update()
     {
-        //press Object with tag and panel appears...
-
         if (Input.GetMouseButtonDown(0))
         {
+            //Opens panel if player clicks on object with "Interactable"
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -32,7 +31,7 @@ public class InformationPanel : MonoBehaviour
 
     public void ClosePanel()
     {
-        //used for close button
+        //close panel if player clicks Close button.
         uiPanel.SetActive(false);
     }
 }
