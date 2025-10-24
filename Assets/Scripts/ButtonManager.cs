@@ -6,7 +6,7 @@ public class ButtonManager : MonoBehaviour
   public void OnPlayButton()
     {
         //Load Game Scene (Change to whatever the Game Scene is)
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void OnOptionButton()
@@ -19,6 +19,12 @@ public class ButtonManager : MonoBehaviour
     {
         //Leaves Game!
         Application.Quit();
+    }
+
+    public void OnCreditsButton()
+    {
+        //Opens Credits Scene (Change to whatever the credits scene is)
+        SceneManager.LoadScene(2);
     }
 
     public void OnBackButton()
