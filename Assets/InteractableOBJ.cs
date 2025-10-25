@@ -49,6 +49,10 @@ public class InteractableOBJ : MonoBehaviour
                 break;
             case ObjectType.Evil:
                 UpdateObjectName();
+                if(objectName == "Corrupted pic")
+                {
+                    uiManager.infoObjectDescriptionText.text = objectDescriptions[0] + evilObjectDescriptions[0];
+                }
                 dialogueManager.InfluenceMorality(-1f);
                 break;
         }

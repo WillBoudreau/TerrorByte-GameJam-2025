@@ -196,6 +196,11 @@ public class DialogueManager : MonoBehaviour
             thresholdValue -= thresholdIncrement;
             corruptionManager.SpreadCorruption();
         }
+        else if (choiceIndex == 10)
+        {
+            Debug.Log("Special dialogue choice selected.");
+            StartCoroutine(PlayExitDialogueLine());
+        }
 
         OnDialogueTrigger();
 
@@ -230,5 +235,14 @@ public class DialogueManager : MonoBehaviour
     {
         thresholdValue += amount;
         SetDialogueChoicesText();
+    }
+    /// <summary>
+    /// Play a specific dialogue line
+    /// </summary>
+    private IEnumerator PlayExitDialogueLine()
+    {
+        dialogueText.text = "I'm always going to be here...";
+        yield return new WaitForSeconds(2f);
+        dialogueText.text = "";
     }
 }

@@ -97,6 +97,7 @@ public class PlayerLook : MonoBehaviour
                 else
                 {
                     xRotation = maxLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(-xRotation, 0f, 0f);
                 }
                 yield return null;
                 break;
@@ -109,6 +110,7 @@ public class PlayerLook : MonoBehaviour
                 else
                 {
                     xRotation = minLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(-xRotation, 0f, 0f);
                 }
                 yield return null;
                 break;
@@ -121,6 +123,7 @@ public class PlayerLook : MonoBehaviour
                 else
                 {
                     zRotation = maxLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(0f, zRotation, 0f);
                 }
                 yield return null;
                 break;
@@ -133,6 +136,7 @@ public class PlayerLook : MonoBehaviour
                 else
                 {
                     zRotation = minLookAngle;
+                    playerCamera.transform.localRotation = Quaternion.Euler(0f, zRotation, 0f);
                 }
                 yield return null;
                 break;
