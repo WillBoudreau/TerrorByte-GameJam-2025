@@ -234,6 +234,7 @@ public class DialogueManager : MonoBehaviour
     public void InfluenceMorality(float amount)
     {
         thresholdValue += amount;
+        Debug.Log("Morality influenced by: " + amount + ", new threshold value: " + thresholdValue);
         SetDialogueChoicesText();
     }
     /// <summary>

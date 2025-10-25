@@ -40,18 +40,34 @@ public class InteractableOBJ : MonoBehaviour
         {
             case ObjectType.Info:
                 uiManager.infoObjectNameText.text = objectName;
-                if(objectName == "pic")
+                if (objectName == "pic")
                 {
                     uiManager.infoObjectDescriptionText.text = objectDescriptions[0] + goodObjectDescriptions[0];
+                }
+                else if (objectName == "diary")
+                {
+                    uiManager.infoObjectDescriptionText.text = objectDescriptions[1] + goodObjectDescriptions[1];
+                }
+                else if (objectName == "toy")
+                {
+                    uiManager.infoObjectDescriptionText.text = objectDescriptions[2] + goodObjectDescriptions[2];
                 }
                 uiManager.TogglePanel("InfoObject");
                 dialogueManager.InfluenceMorality(1f);
                 break;
             case ObjectType.Evil:
                 UpdateObjectName();
-                if(objectName == "Corrupted pic")
+                if (objectName == "Corrupted pic")
                 {
                     uiManager.infoObjectDescriptionText.text = objectDescriptions[0] + evilObjectDescriptions[0];
+                }
+                else if (objectName == "Corrupted diary")
+                {
+                    uiManager.infoObjectDescriptionText.text = objectDescriptions[1] + evilObjectDescriptions[1];
+                }
+                else if (objectName == "Corrupted toy")
+                {
+                    uiManager.infoObjectDescriptionText.text = objectDescriptions[2] + evilObjectDescriptions[2];
                 }
                 dialogueManager.InfluenceMorality(-1f);
                 break;
@@ -64,7 +80,14 @@ public class InteractableOBJ : MonoBehaviour
     {
         if (objectType == ObjectType.Evil)
         {
-            objectName = "Corrupted " + objectName;
+            if (objectName.Contains("Corrupted") == false)
+            {
+                objectName = "Corrupted " + objectName;
+            }
+            else
+            {
+                objectName = objectName;
+            }
         }
     }
     /// <summary>
