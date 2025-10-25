@@ -242,7 +242,14 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public bool IsGoodPath()
     {
-        return thresholdValue >= goodThreshold;
+        return thresholdValue >= goodThreshold || thresholdValue > neutralThreshold;
+    }
+    /// <summary>
+    /// Checks if the current path is neutral based on the morality score.
+    /// </summary>
+    public bool IsNeutralPath()
+    {
+        return thresholdValue == neutralThreshold;
     }
     /// <summary>
     /// Influence the morality score directly, positive values for good, negative for bad.

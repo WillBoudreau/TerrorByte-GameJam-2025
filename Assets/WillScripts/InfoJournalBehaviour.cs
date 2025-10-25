@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Runtime.Serialization;
 
 public class InfoJournalBehaviour : MonoBehaviour
 {
@@ -11,36 +12,48 @@ public class InfoJournalBehaviour : MonoBehaviour
     [SerializeField] private List<string> evilInfoJournalTexts;// List of evil information journal entries
     [SerializeField] private List<string> goodInfoJournalTexts;// List of good information journal entries
     
+    void Start()
+    {
+        dialogueManager = FindObjectOfType<DialogueManager>();
+    }
+
     /// <summary>
     /// Depending on when the threshold value, it determines which info journal text to display.
     /// </summary>
     public void DisplayInfoJournal()
     {
+        Debug.Log("Displaying Info Journal Entries.");
         // Determine which info journal text to display based on the current state
         if (dialogueManager.IsEvilPath())
         {
+            Debug.Log("Displaying Evil Info Journal Entries.");
             // Display evil info journal texts
-            for(int i = 0; i < evilInfoJournalTexts.Count; i++)
+            for (int i = 0; i < evilInfoJournalTexts.Count; i++)
             {
                 Debug.Log("Evil Info Journal Entry: " + evilInfoJournalTexts[i]);
                 infoJournalTexts[i].text = evilInfoJournalTexts[i];
             }
         }
-        else if (dialogueManager.IsGoodPath() || dialogueManager.thresholdValue ==  dialogueManager.neutralThreshold)
+        else if (dialogueManager.IsGoodPath())
         {
+            Debug.Log("Displaying Good Info Journal Entries.");
             // Display good info journal texts
-            for(int i = 0; i < goodInfoJournalTexts.Count; i++)
+            for (int i = 0; i < goodInfoJournalTexts.Count; i++)
             {
-                Debug.Log("Good Info Journal Entry: " + goodInfoJournalTexts[i]);
                 infoJournalTexts[i].text = goodInfoJournalTexts[i];
+                Debug.Log("Good Info Journal Entry: " + goodInfoJournalTexts[i]);
+
             }
         }
-        else
+        else if(dialogueManager.IsNeutralPath())
         {
-            // Display regular info journal texts
-            foreach (TextMeshProUGUI text in infoJournalTexts)
+            Debug.Log("Displaying Good Info Journal Entries.");
+            // Display good info journal texts
+            for (int i = 0; i < goodInfoJournalTexts.Count; i++)
             {
-                Debug.Log("Info Journal Entry: " + text.text);
+                infoJournalTexts[i].text = goodInfoJournalTexts[i];
+                Debug.Log("Good Info Journal Entry: " + goodInfoJournalTexts[i]);
+
             }
         }
     }
