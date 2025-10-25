@@ -12,9 +12,20 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;// Reference to the victory panel UI element
     public GameObject gameOverPanel;// Reference to the game over panel UI element
     public TextMeshProUGUI dayCounterText;// Reference to the day counter text UI element
-
+    [Header("Info Object Panel")]
+    public GameObject infoObjectPanel;// Reference to the info object panel UI element
+    public TextMeshProUGUI infoObjectNameText;// Reference to the info object name text UI element
+    public TextMeshProUGUI infoObjectDescriptionText;// Reference to the info object description text UI element
+    [Header("Class References")]
+    [SerializeField] private InformationPanel informationPanel;
+    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] private EvilSideBehaviour evilSideBehaviour;
     private void Start()
     {
+        informationPanel = FindObjectOfType<InformationPanel>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        evilSideBehaviour = FindObjectOfType<EvilSideBehaviour>();
+        
         dayCounterText.text = "Day: 0";
         CloseAllPanels();
         gameplayHUD.SetActive(true);
@@ -30,6 +41,7 @@ public class UIManager : MonoBehaviour
         gameplayHUD.SetActive(false);
         victoryPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        infoObjectPanel.SetActive(false);
     }
     /// <summary>
     /// Toggles UI panels based on the provided panel name.
@@ -40,8 +52,13 @@ public class UIManager : MonoBehaviour
         switch (panelName)
         {
             case "EvilDialogue":
+                // Show the evil dialogue panel
                 dialoguePanel.SetActive(true);
                 evilDialoguePanel.SetActive(true);
+
+                // Trigger the evil side behaviour to display a response
+                evilSideBehaviour.DisplayEvilResponse();
+
                 break;
             case "Info":
                 infoPanel.SetActive(true);
@@ -54,6 +71,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "GameOver":
                 gameOverPanel.SetActive(true);
+                break;
+            case "InfoObject":
+                infoObjectPanel.SetActive(true);
                 break;
             default:
                 Debug.LogWarning("Panel name not recognized: " + panelName);

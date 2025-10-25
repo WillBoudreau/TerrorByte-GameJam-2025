@@ -222,4 +222,13 @@ public class DialogueManager : MonoBehaviour
     {
         return thresholdValue >= goodThreshold;
     }
+    /// <summary>
+    /// Influence the morality score directly, positive values for good, negative for bad.
+    /// Have the dialogue manager adjust the dialogue choices accordingly.
+    /// </summary>
+    public void InfluenceMorality(float amount)
+    {
+        thresholdValue += amount;
+        SetDialogueChoicesText();
+    }
 }
