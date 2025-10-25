@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;// Speed of the typing effect
     [Header("Dialogue Manager Lines")]
     [SerializeField] private TextMeshProUGUI dialogueText;// Reference to the dialogue text UI element
-    [SerializeField] private GameObject dialoguePanel;// Reference to the dialogue panel UI element
+    public GameObject dialoguePanel;// Reference to the dialogue panel UI element
     [SerializeField] private string[] currentDialogueLine = new string[4];// Current dialogue line being displayed
     [SerializeField] private List<string> goodDialogueLines;// List of dialogue lines for good morality
     [SerializeField] private List<string> badDialogueLines;// List of dialogue lines for bad morality
@@ -25,9 +25,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> dialogueChoicesTexts;// List of dialogue choice text UI elements
     private void Start()
     {
+        dialoguePanel.SetActive(false);
         SetDialogueChoicesText();
     }
-
+    #region Determine Dialogue Lines
     /// <summary>
     /// Determines the dialogue lines based on the morality score.
     /// </summary>
@@ -195,11 +196,26 @@ public class DialogueManager : MonoBehaviour
         OnDialogueTrigger();
 
     }
+    #endregion
     /// <summary>
     /// When a dialogue is triggered, open the dialogue panel.
     /// </summary>
     public void OnDialogueTrigger()
     {
         dialoguePanel.SetActive(true);
+    }
+    /// <summary>
+    /// Checks if the current path is evil based on the morality score.
+    /// </summary>
+    public bool IsEvilPath()
+    {
+        return thresholdValue <= badThreshold;
+    }
+    /// <summary>
+    /// Checks if the current path is good based on the morality score.
+    /// </summary>
+    public bool IsGoodPath()
+    {
+        return thresholdValue >= goodThreshold;
     }
 }
