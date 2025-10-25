@@ -23,7 +23,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<string> badDialogueLines;// List of dialogue lines for bad morality
     [Header("Dialogue Choices/Texts")]
     [SerializeField] private List<TextMeshProUGUI> dialogueChoicesTexts;// List of dialogue choice text UI elements
-
     private void Start()
     {
         SetDialogueChoicesText();
