@@ -6,6 +6,8 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Corruption Settings")]
+    [SerializeField] private CorruptionSpread corruptionManager;// Reference to the CorruptionManager script
     [Header("Dialogue Settings")]
     public float thresholdValue;// Morality score threshold to determine good or bad dialogue
     public float thresholdIncrement = 0.5f;// Morality score threshold to determine good or bad dialogue
@@ -25,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> dialogueChoicesTexts;// List of dialogue choice text UI elements
     private void Start()
     {
+        corruptionManager = FindObjectOfType<CorruptionSpread>();
         dialoguePanel.SetActive(false);
         SetDialogueChoicesText();
     }
@@ -191,6 +194,7 @@ public class DialogueManager : MonoBehaviour
         else if (badDialogueLines.Contains(chosenLine))
         {
             thresholdValue -= thresholdIncrement;
+            corruptionManager.SpreadCorruption();
         }
 
         OnDialogueTrigger();
