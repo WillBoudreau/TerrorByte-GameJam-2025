@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;// Reference to the victory panel UI element
     public GameObject gameOverPanel;// Reference to the game over panel UI element
     public GameObject mainMenuPanel;// Reference to the main menu panel UI element
+    public GameObject pauseMenuPanel;//Reference to the pause menu panel UI element
     public TextMeshProUGUI dayCounterText;// Reference to the day counter text UI element
     [Header("Info Object Panel")]
     public GameObject infoObjectPanel;// Reference to the info object panel UI element
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(false);
         infoObjectPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
+        pauseMenuPanel.SetActive(false);
     }
     /// <summary>
     /// Toggles UI panels based on the provided panel name.

@@ -6,7 +6,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject optionsMenu;//panel for options
     public GameObject creditsMenu;//panel for credits
     public GameObject controlsMenu;//panel for controls
-
+    public GameObject pauseMenu;//panel for pause menu (in game)
 
     private void Start()
     {
@@ -57,6 +57,13 @@ public class ButtonManager : MonoBehaviour
     {
         //Close panel
         ClearMenus();
+    }
+
+    public void OnQuitButton()
+    {
+        //returns to main menu (from game)
+        SceneManager.LoadScene(0);
+        pauseMenu.SetActive(false);
     }
 
     public void OnProgressButton()
