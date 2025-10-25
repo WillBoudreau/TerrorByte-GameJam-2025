@@ -240,6 +240,7 @@ public class DialogueManager : MonoBehaviour
     public bool IsEvilPath()
     {
         Debug.Log("Checking Evil Path with threshold value: " + thresholdValue);
+        Debug.Log("Evil Path Check Result: " + (thresholdValue <= badThreshold));
         return thresholdValue <= badThreshold;
     }
     /// <summary>

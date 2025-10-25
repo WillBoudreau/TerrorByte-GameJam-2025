@@ -24,7 +24,7 @@ public class InfoJournalBehaviour : MonoBehaviour
     {
         Debug.Log("Displaying Info Journal Entries.");
         // Determine which info journal text to display based on the current state
-        if (dialogueManager.IsEvilPath())
+        if (dialogueManager.IsEvilPath() == false)
         {
             Debug.Log("Displaying Evil Info Journal Entries.");
             // Display evil info journal texts
