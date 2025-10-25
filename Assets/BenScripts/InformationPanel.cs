@@ -3,7 +3,7 @@ using UnityEngine;
 public class InformationPanel : MonoBehaviour
 {
     public GameObject uiPanel;// Reference to the UI panel to display
-    private UIManager uiManager;
+    [SerializeField] private UIManager uiManager;
     private void Start()
     {
         uiPanel.SetActive(false);
@@ -22,7 +22,7 @@ public class InformationPanel : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Interactable"))
                 {
-                    uiPanel.SetActive(true);
+                    hit.collider.GetComponent<InteractableOBJ>().Interact();
                 }
                 else if(hit.collider.CompareTag("EvilSide"))
                 {
