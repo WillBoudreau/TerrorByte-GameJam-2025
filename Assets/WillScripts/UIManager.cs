@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameplayHUD;// Reference to the gameplay HUD UI element
     public GameObject victoryPanel;// Reference to the victory panel UI element
     public GameObject gameOverPanel;// Reference to the game over panel UI element
+    public GameObject mainMenuPanel;// Reference to the main menu panel UI element
     public TextMeshProUGUI dayCounterText;// Reference to the day counter text UI element
     [Header("Info Object Panel")]
     public GameObject infoObjectPanel;// Reference to the info object panel UI element
@@ -28,7 +29,7 @@ public class UIManager : MonoBehaviour
         
         dayCounterText.text = "Day: 0";
         CloseAllPanels();
-        gameplayHUD.SetActive(true);
+        mainMenuPanel.SetActive(true);
     }
     /// <summary>
     /// Closes all UI panels.
@@ -42,6 +43,7 @@ public class UIManager : MonoBehaviour
         victoryPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         infoObjectPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
     }
     /// <summary>
     /// Toggles UI panels based on the provided panel name.
@@ -74,6 +76,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "InfoObject":
                 infoObjectPanel.SetActive(true);
+                break;
+            case "MainMenu":
+                mainMenuPanel.SetActive(true);
                 break;
             default:
                 Debug.LogWarning("Panel name not recognized: " + panelName);

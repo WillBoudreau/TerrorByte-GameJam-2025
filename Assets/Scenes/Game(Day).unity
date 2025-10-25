@@ -592,6 +592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c5c1a452871e84684c050e4b287167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsMenu: {fileID: 0}
+  creditsMenu: {fileID: 0}
+  controlsMenu: {fileID: 0}
 --- !u!1 &50515630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,11 +4178,11 @@ Transform:
   m_GameObject: {fileID: 946200809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.37, y: 2.047, z: 2.316}
+  m_LocalPosition: {x: -218.90012, y: -131.31416, z: 62.115532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2034030429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &946200814
 MonoBehaviour:
@@ -5471,11 +5474,11 @@ Transform:
   m_GameObject: {fileID: 1212996362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.37, y: 2.047, z: 2.22}
+  m_LocalPosition: {x: -220.90012, y: -131.31416, z: 62.01953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2034030429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215712763
 GameObject:
@@ -5709,18 +5712,22 @@ MonoBehaviour:
   goodDialogueLines:
   - I know I messed up, but I accept that
   - I can fix that tomorrow
-  - I'm a goofy goober
-  - SIIIMOOOON
+  - I'm not perfect, but I'm proud of who I am
+  - I accept who I am
   badDialogueLines:
   - You're right, I'm wrong
   - Why do I even bother
   - I'm a poopy pants
-  - I'm gonna put that artist tablet in a bag of cheetos
+  - I don't know...
   dialogueChoicesTexts:
   - {fileID: 1868466262}
   - {fileID: 162975030}
   - {fileID: 1644042446}
   - {fileID: 945331762}
+  moralityObjects:
+  - {fileID: 946200809}
+  - {fileID: 1685424702}
+  - {fileID: 1212996362}
 --- !u!1 &1349041030
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,11 +7278,11 @@ Transform:
   m_GameObject: {fileID: 1685424702}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.08, y: 2.047, z: 2.316}
+  m_LocalPosition: {x: -223.19011, y: -131.31416, z: 62.115532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2034030429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1703483262
 Mesh:
@@ -9059,6 +9066,9 @@ Transform:
   - {fileID: 832575519}
   - {fileID: 2081371947}
   - {fileID: 680574049}
+  - {fileID: 946200813}
+  - {fileID: 1685424707}
+  - {fileID: 1212996367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2034030430
@@ -9956,6 +9966,3 @@ SceneRoots:
   - {fileID: 1101088721336379905}
   - {fileID: 780681810}
   - {fileID: 2034030429}
-  - {fileID: 946200813}
-  - {fileID: 1685424707}
-  - {fileID: 1212996367}

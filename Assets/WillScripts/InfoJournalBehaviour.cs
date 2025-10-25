@@ -30,8 +30,8 @@ public class InfoJournalBehaviour : MonoBehaviour
             // Display evil info journal texts
             for (int i = 0; i < evilInfoJournalTexts.Count; i++)
             {
-                Debug.Log("Evil Info Journal Entry: " + evilInfoJournalTexts[i]);
                 infoJournalTexts[i].text = evilInfoJournalTexts[i];
+                Debug.Log("Evil Info Journal Entry: " + evilInfoJournalTexts[i]);
             }
         }
         else if (dialogueManager.IsGoodPath())

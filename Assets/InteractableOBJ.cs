@@ -105,5 +105,23 @@ public class InteractableOBJ : MonoBehaviour
             objRenderer.material = originalMaterial;
         }
     }
+    /// <summary>
+    /// Set the objects state to Evil
+    /// </summary>
+    public void SetToEvil()
+    {
+        objectType = ObjectType.Evil;
+        UpdateObjectName();
+        SetMaterial();
+    }
+    /// <summary>
+    /// Set the objects state to Info
+    /// </summary>
+    public void SetToInfo()
+    {
+        objectType = ObjectType.Info;
+        objectName = objectName.Replace("Corrupted ", "");
+        SetMaterial();
+    }
 }
 

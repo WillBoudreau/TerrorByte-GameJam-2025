@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<string> badDialogueLines;// List of dialogue lines for bad morality
     [Header("Dialogue Choices/Texts")]
     [SerializeField] private List<TextMeshProUGUI> dialogueChoicesTexts;// List of dialogue choice text UI elements
+    [Header("Morality object References")]
+    [SerializeField] private List<GameObject> moralityObjects;// List of morality-related game objects
     private void Start()
     {
         sleepButton.SetActive(false);
@@ -220,9 +222,11 @@ public class DialogueManager : MonoBehaviour
 
             OnDialogueTrigger();
             currentDialogueCount++;
+            UpdateMoralityObjects(thresholdValue);
         }
     }
     #endregion
+    #region Path Checkers
     /// <summary>
     /// When a dialogue is triggered, open the dialogue panel.
     /// </summary>
@@ -235,6 +239,7 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public bool IsEvilPath()
     {
+        Debug.Log("Checking Evil Path with threshold value: " + thresholdValue);
         return thresholdValue <= badThreshold;
     }
     /// <summary>
@@ -251,6 +256,7 @@ public class DialogueManager : MonoBehaviour
     {
         return thresholdValue == neutralThreshold;
     }
+    #endregion
     /// <summary>
     /// Influence the morality score directly, positive values for good, negative for bad.
     /// Have the dialogue manager adjust the dialogue choices accordingly.
@@ -280,4 +286,43 @@ public class DialogueManager : MonoBehaviour
         SetDialogueChoicesText();
         sleepButton.SetActive(false);
     }
+    #region Morality Objects Management
+    /// <summary>
+    /// Have the morality objects update their state based on the current morality path.
+    /// </summary>
+    public void UpdateMoralityObjects(float moralityScore)
+    {
+        foreach(var obj in moralityObjects)
+        {
+            InteractableOBJ interactable = obj.GetComponent<InteractableOBJ>();
+            if(interactable == null)
+            {
+                Debug.LogWarning("Morality object does not have an InteractableOBJ component.");
+                interactable = FindObjectOfType<InteractableOBJ>();
+            }
+        }
+        if(moralityScore < neutralThreshold)
+        {
+            foreach(var obj in moralityObjects)
+            {
+                InteractableOBJ interactable = obj.GetComponent<InteractableOBJ>();
+                if(interactable != null)
+                {
+                    interactable.SetToEvil();
+                }
+            }
+        }
+        else if(moralityScore > neutralThreshold)
+        {
+            foreach (var obj in moralityObjects)
+            {
+                InteractableOBJ interactable = obj.GetComponent<InteractableOBJ>();
+                if (interactable != null)
+                {
+                    interactable.SetToInfo();
+                }
+            }
+        }
+    }
+    #endregion
 }
