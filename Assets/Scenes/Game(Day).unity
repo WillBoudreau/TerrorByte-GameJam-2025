@@ -997,9 +997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Progress
-
-'
+  m_text: Sleep
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1450,11 +1448,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &235934884 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7296090046103139549, guid: c1a69e91dd0e0b2488c59a4e967b9793, type: 3}
-  m_PrefabInstance: {fileID: 1101088721336379905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &246138803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +2989,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618466720}
   m_CullTransparentMesh: 1
+--- !u!1 &680574048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680574049}
+  m_Layer: 0
+  m_Name: CorruptionStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680574049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680574048}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -224.58041, y: -131.04227, z: 59.730278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2034030429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &687511268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,7 +4624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ignore...
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5447,7 +5471,7 @@ Transform:
   m_GameObject: {fileID: 1212996362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.08, y: 2.047, z: 4.83}
+  m_LocalPosition: {x: 4.37, y: 2.047, z: 2.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5671,7 +5695,10 @@ MonoBehaviour:
   neutralThreshold: 0
   badThreshold: -5
   minThreshold: -10
+  maxDialoguePerDay: 3
+  currentDialogueCount: 0
   typingSpeed: 0.05
+  sleepButton: {fileID: 1784866098}
   dialogueText: {fileID: 0}
   dialoguePanel: {fileID: 160705953}
   currentDialogueLine:
@@ -8057,6 +8084,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1299328775}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: ResetDialogueCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 29347720}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: OnProgressButton
@@ -9019,6 +9058,7 @@ Transform:
   - {fileID: 29347719}
   - {fileID: 832575519}
   - {fileID: 2081371947}
+  - {fileID: 680574049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2034030430
@@ -9350,7 +9390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19efd4ab0e069774980198db5dd2062c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corruptionSource: {fileID: 235934884}
+  corruptionSource: {fileID: 680574049}
   corruptionEffectPrefab: {fileID: 415216954196619938, guid: b028fb3ac61fa724ba25387e158c5fc0, type: 3}
   corruptionLayerMask:
     serializedVersion: 2

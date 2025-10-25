@@ -16,6 +16,11 @@ public class EvilSideBehaviour : MonoBehaviour
     /// </summary>
     public void DisplayEvilResponse()
     {
+        if(dialogueManager.currentDialogueCount >= dialogueManager.maxDialoguePerDay)
+        {
+            ShowDialogue("...Go to sleep...");
+            return;
+        }
         if (dialogueManager.thresholdValue >= dialogueManager.maxThreshold || dialogueManager.thresholdValue >= dialogueManager.neutralThreshold)
         {
             int index = Random.Range(0, goodResponses.Count);

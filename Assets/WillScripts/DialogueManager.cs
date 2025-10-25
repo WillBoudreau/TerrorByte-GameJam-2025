@@ -16,7 +16,10 @@ public class DialogueManager : MonoBehaviour
     public float neutralThreshold = 0f;// Neutral morality score
     public float badThreshold = -5f;// Bad morality score
     public float minThreshold = -10f;// Minimum morality score
+    public int maxDialoguePerDay = 3;// Maximum number of dialogues per day
+    public int currentDialogueCount = 0;// Current number of dialogues that have occurred today
     [SerializeField] private float typingSpeed = 0.05f;// Speed of the typing effect
+    [SerializeField] private GameObject sleepButton;// Reference to the sleep button UI element
     [Header("Dialogue Manager Lines")]
     [SerializeField] private TextMeshProUGUI dialogueText;// Reference to the dialogue text UI element
     public GameObject dialoguePanel;// Reference to the dialogue panel UI element
@@ -27,6 +30,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> dialogueChoicesTexts;// List of dialogue choice text UI elements
     private void Start()
     {
+        sleepButton.SetActive(false);
+
+
         corruptionManager = FindObjectOfType<CorruptionSpread>();
         dialoguePanel.SetActive(false);
         SetDialogueChoicesText();
@@ -172,6 +178,12 @@ public class DialogueManager : MonoBehaviour
         DetermineDialogueLines();
         for (int i = 0; i < dialogueChoicesTexts.Count; i++)
         {
+            if(currentDialogueCount >= maxDialoguePerDay || currentDialogueCount == maxDialoguePerDay - 1)
+            {
+                dialogueChoicesTexts[i].text = "Sleep...";
+                sleepButton.SetActive(true);
+                continue;
+            }
             Debug.Log("Setting dialogue choice text for index: " + i);
             dialogueChoicesTexts[i].text = currentDialogueLine[i];
         }
@@ -183,27 +195,32 @@ public class DialogueManager : MonoBehaviour
     {
         if (choiceIndex < 0 || choiceIndex >= currentDialogueLine.Length)
             return;
-        string chosenLine = currentDialogueLine[choiceIndex];
-
-        SetDialogueChoicesText();
-
-        if (goodDialogueLines.Contains(chosenLine))
+        else if (currentDialogueCount >= maxDialoguePerDay)
+            SetDialogueChoicesText();
+        else
         {
-            thresholdValue += thresholdIncrement;
-        }
-        else if (badDialogueLines.Contains(chosenLine))
-        {
-            thresholdValue -= thresholdIncrement;
-            corruptionManager.SpreadCorruption();
-        }
-        else if (choiceIndex == 10)
-        {
-            Debug.Log("Special dialogue choice selected.");
-            StartCoroutine(PlayExitDialogueLine());
-        }
+            string chosenLine = currentDialogueLine[choiceIndex];
 
-        OnDialogueTrigger();
+            SetDialogueChoicesText();
 
+            if (goodDialogueLines.Contains(chosenLine))
+            {
+                thresholdValue += thresholdIncrement;
+            }
+            else if (badDialogueLines.Contains(chosenLine))
+            {
+                thresholdValue -= thresholdIncrement;
+                corruptionManager.SpreadCorruption();
+            }
+            else if (choiceIndex == 10)
+            {
+                Debug.Log("Special dialogue choice selected.");
+                StartCoroutine(PlayExitDialogueLine());
+            }
+
+            OnDialogueTrigger();
+            currentDialogueCount++;
+        }
     }
     #endregion
     /// <summary>
@@ -245,5 +262,15 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "I'm always going to be here...";
         yield return new WaitForSeconds(2f);
         dialogueText.text = "";
+    }
+    /// <summary>
+    /// Reset the dialogue count at the start of a new day.
+    /// and set the sleep button to inactive.
+    /// </summary>
+    public void ResetDialogueCount()
+    {
+        currentDialogueCount = 0;
+        SetDialogueChoicesText();
+        sleepButton.SetActive(false);
     }
 }
