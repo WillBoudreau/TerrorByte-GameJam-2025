@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class InformationPanel : MonoBehaviour
 {
-
-    public GameObject uiPanel;
-
+    public GameObject uiPanel;// Reference to the UI panel to display
+    private UIManager uiManager;
     private void Start()
     {
         uiPanel.SetActive(false);
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     void Update()
@@ -23,6 +23,10 @@ public class InformationPanel : MonoBehaviour
                 if (hit.collider.CompareTag("Interactable"))
                 {
                     uiPanel.SetActive(true);
+                }
+                else if(hit.collider.CompareTag("EvilSide"))
+                {
+                    uiManager.TogglePanel("EvilDialogue");
                 }
             }
 
