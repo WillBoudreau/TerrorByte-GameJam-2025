@@ -15265,6 +15265,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: EvilSide
       objectReference: {fileID: 0}
+    - target: {fileID: 9171134325264472569, guid: 7638d7dc56a5647499f2eb3f504d55c9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a36ccdcd96c11342aaa9adda7a13ff3, type: 2}
     m_RemovedComponents:
     - {fileID: 8578609875012733555, guid: 7638d7dc56a5647499f2eb3f504d55c9, type: 3}
     m_RemovedGameObjects: []
