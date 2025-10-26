@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class InformationPanel : MonoBehaviour
@@ -20,6 +21,7 @@ public class InformationPanel : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log("Raycast hit: " + hit.collider.name);
                 if (hit.collider.CompareTag("Interactable"))
                 {
                     hit.collider.GetComponent<InteractableOBJ>().Interact();
