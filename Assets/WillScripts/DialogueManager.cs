@@ -58,11 +58,11 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[0];
+                    currentDialogueLine[i] = greatDialogueLines[0];
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[1];
+                    currentDialogueLine[i] = greatDialogueLines[1];
                 }
                 else if (i == 2)
                 {
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 3)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
             }
         }
@@ -81,19 +81,47 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[3];
+                    if(currentDialogueLine[i] == greatDialogueLines[0])
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[1];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[0];
+                    }
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[2];
+                    if(currentDialogueLine[i] == greatDialogueLines[1])
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[2];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[1];
+                    }
                 }
                 else if (i == 2)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    if(currentDialogueLine[i] == goodDialogueLines[2])
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[0];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[2];
+                    }
                 }
                 else if (i == 3)
                 {
-                    currentDialogueLine[i] = badDialogueLines[1];
+                    if(currentDialogueLine[i] == neutralDialogueLines[0])
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[1];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[0];
+                    }
                 }
             }
         }
@@ -108,11 +136,11 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[1];
+                    currentDialogueLine[i] = neutralDialogueLines[1];
                 }
                 else if (i == 2)
                 {
-                    currentDialogueLine[i] = badDialogueLines[2];
+                    currentDialogueLine[i] = neutralDialogueLines[2];
                 }
                 else if (i == 3)
                 {
@@ -130,7 +158,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
                 else if (i == 2)
                 {
@@ -148,11 +176,11 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = badDialogueLines[1];
+                    currentDialogueLine[i] = neutralDialogueLines[1];
                 }
                 else if (i == 2)
                 {
@@ -216,6 +244,14 @@ public class DialogueManager : MonoBehaviour
                 thresholdValue -= thresholdIncrement;
                 corruptionManager.SpreadCorruption();
             }
+            else if (neutralDialogueLines.Contains(chosenLine))
+            {
+                thresholdIncrement += 0f;
+            }
+            else if(greatDialogueLines.Contains(chosenLine))
+            {
+                thresholdValue += thresholdIncrement * 2;
+            }
             else if (choiceIndex == 10)
             {
                 Debug.Log("Special dialogue choice selected.");
@@ -243,7 +279,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Checking Evil Path with threshold value: " + thresholdValue);
         Debug.Log("Evil Path Check Result: " + (thresholdValue <= badThreshold));
-        return thresholdValue <= badThreshold;
+        return thresholdValue <= badThreshold || thresholdValue < neutralThreshold;
     }
     /// <summary>
     /// Checks if the current path is good based on the morality score.

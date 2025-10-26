@@ -10,8 +10,8 @@ public class PlayerLook : MonoBehaviour
     [Header("Mouse Settings")]
     public float mouseSensitivity = 100f;// Sensitivity multiplier for mouse movement
     [SerializeField] private float lookEdgeThreshold = 50f;// Distance from screen edge to trigger look indicators
-    private float xRotation = 0f;// Current rotation around the Y-axis
-    private float zRotation = 0f;// Current rotation around the Z-axis
+    [SerializeField] private float xRotation = 0f;// Current rotation around the Y-axis
+    [SerializeField] private float zRotation = 0f;// Current rotation around the Z-axis
     [Header("Mouse References")]
     [SerializeField] private GameObject playerCamera;// Reference to the player's camera
     [SerializeField] private GameObject lookUpIndicator;// UI element to indicate looking up
@@ -117,6 +117,7 @@ public class PlayerLook : MonoBehaviour
             case "left":
                 if (zRotation < maxLookAngle)
                 {
+                    Debug.Log("Rotating Left");
                     zRotation += maxLookAngle;
                     playerCamera.transform.localRotation = Quaternion.Euler(0f, zRotation, 0f);
                 }
