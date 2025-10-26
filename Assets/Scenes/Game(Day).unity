@@ -4907,6 +4907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   lookEdgeThreshold: 100
+  xRotation: 0
+  zRotation: 0
   playerCamera: {fileID: 999190141}
   lookUpIndicator: {fileID: 326742051}
   lookDownIndicator: {fileID: 569938475}
@@ -6478,6 +6480,8 @@ MonoBehaviour:
   - 
   - 
   - 
+  greatDialogueLines: []
+  neutralDialogueLines: []
   goodDialogueLines:
   - I know I messed up, but I accept that
   - I can fix that tomorrow
@@ -6729,6 +6733,7 @@ MonoBehaviour:
   - I had a disagreement with my friend but we talked and got over it
   - I dropped my phone but luckily I caught it before it hit the ground
   - I can't wait for tomorrow! I'll get to see my friend again!
+  neutralInfoJournalTexts: []
 --- !u!1 &1407959183
 GameObject:
   m_ObjectHideFlags: 0
@@ -10691,7 +10696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5328508460308893460, guid: c1a69e91dd0e0b2488c59a4e967b9793, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.97
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 5328508460308893460, guid: c1a69e91dd0e0b2488c59a4e967b9793, type: 3}
       propertyPath: m_LocalPosition.z

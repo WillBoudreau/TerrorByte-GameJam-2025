@@ -11,6 +11,7 @@ public class InfoJournalBehaviour : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> infoJournalTexts;// List of information journal entries
     [SerializeField] private List<string> evilInfoJournalTexts;// List of evil information journal entries
     [SerializeField] private List<string> goodInfoJournalTexts;// List of good information journal entries
+    [SerializeField] private List<string> neutralInfoJournalTexts;// List of neutral information journal entries
     
     void Start()
     {
@@ -24,7 +25,7 @@ public class InfoJournalBehaviour : MonoBehaviour
     {
         Debug.Log("Displaying Info Journal Entries.");
         // Determine which info journal text to display based on the current state
-        if (dialogueManager.IsEvilPath() == false)
+        if (dialogueManager.IsEvilPath())
         {
             Debug.Log("Displaying Evil Info Journal Entries.");
             // Display evil info journal texts
@@ -49,10 +50,10 @@ public class InfoJournalBehaviour : MonoBehaviour
         {
             Debug.Log("Displaying Good Info Journal Entries.");
             // Display good info journal texts
-            for (int i = 0; i < goodInfoJournalTexts.Count; i++)
+            for (int i = 0; i < neutralInfoJournalTexts.Count; i++)
             {
-                infoJournalTexts[i].text = goodInfoJournalTexts[i];
-                Debug.Log("Good Info Journal Entry: " + goodInfoJournalTexts[i]);
+                infoJournalTexts[i].text = neutralInfoJournalTexts[i];
+                Debug.Log("Neutral Info Journal Entry: " + neutralInfoJournalTexts[i]);
 
             }
         }

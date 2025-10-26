@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;// Reference to the dialogue text UI element
     public GameObject dialoguePanel;// Reference to the dialogue panel UI element
     [SerializeField] private string[] currentDialogueLine = new string[4];// Current dialogue line being displayed
+    [SerializeField] private List<string> greatDialogueLines;// List of dialogue lines for great morality
+    [SerializeField] private List<string> neutralDialogueLines;// List of dialogue lines for neutral morality
     [SerializeField] private List<string> goodDialogueLines;// List of dialogue lines for good morality
     [SerializeField] private List<string> badDialogueLines;// List of dialogue lines for bad morality
     [Header("Dialogue Choices/Texts")]
@@ -56,11 +58,11 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[0];
+                    currentDialogueLine[i] = greatDialogueLines[0];
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[1];
+                    currentDialogueLine[i] = greatDialogueLines[1];
                 }
                 else if (i == 2)
                 {
@@ -68,7 +70,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 3)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
             }
         }
@@ -79,19 +81,47 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[3];
+                    if(currentDialogueLine[i] == greatDialogueLines[0])
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[1];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[0];
+                    }
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[2];
+                    if(currentDialogueLine[i] == greatDialogueLines[1])
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[2];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[1];
+                    }
                 }
                 else if (i == 2)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    if(currentDialogueLine[i] == goodDialogueLines[2])
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[0];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = goodDialogueLines[2];
+                    }
                 }
                 else if (i == 3)
                 {
-                    currentDialogueLine[i] = badDialogueLines[1];
+                    if(currentDialogueLine[i] == neutralDialogueLines[0])
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[1];
+                    }
+                    else
+                    {
+                        currentDialogueLine[i] = neutralDialogueLines[0];
+                    }
                 }
             }
         }
@@ -106,11 +136,11 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = goodDialogueLines[1];
+                    currentDialogueLine[i] = neutralDialogueLines[1];
                 }
                 else if (i == 2)
                 {
-                    currentDialogueLine[i] = badDialogueLines[2];
+                    currentDialogueLine[i] = neutralDialogueLines[2];
                 }
                 else if (i == 3)
                 {
@@ -128,7 +158,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
                 else if (i == 2)
                 {
@@ -146,11 +176,11 @@ public class DialogueManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    currentDialogueLine[i] = badDialogueLines[0];
+                    currentDialogueLine[i] = neutralDialogueLines[0];
                 }
                 else if (i == 1)
                 {
-                    currentDialogueLine[i] = badDialogueLines[1];
+                    currentDialogueLine[i] = neutralDialogueLines[1];
                 }
                 else if (i == 2)
                 {
@@ -214,6 +244,14 @@ public class DialogueManager : MonoBehaviour
                 thresholdValue -= thresholdIncrement;
                 corruptionManager.SpreadCorruption();
             }
+            else if (neutralDialogueLines.Contains(chosenLine))
+            {
+                thresholdIncrement += 0f;
+            }
+            else if(greatDialogueLines.Contains(chosenLine))
+            {
+                thresholdValue += thresholdIncrement * 2;
+            }
             else if (choiceIndex == 10)
             {
                 Debug.Log("Special dialogue choice selected.");
@@ -241,7 +279,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Checking Evil Path with threshold value: " + thresholdValue);
         Debug.Log("Evil Path Check Result: " + (thresholdValue <= badThreshold));
-        return thresholdValue <= badThreshold;
+        return thresholdValue <= badThreshold || thresholdValue < neutralThreshold;
     }
     /// <summary>
     /// Checks if the current path is good based on the morality score.

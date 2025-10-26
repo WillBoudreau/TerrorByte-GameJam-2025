@@ -1610,7 +1610,7 @@ RectTransform:
   m_GameObject: {fileID: 297161521}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5369313, y: 3.2215881, z: 1.0738628}
+  m_LocalScale: {x: 0.25, y: 3, z: 1.0738628}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1370122465}
@@ -1618,7 +1618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.37461317, y: -156}
+  m_AnchoredPosition: {x: 0, y: -195}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &318371263
@@ -5420,11 +5420,21 @@ MonoBehaviour:
   - 
   - 
   - 
-  goodDialogueLines:
+  greatDialogueLines:
+  - I know I can do it, I won't give up
+  - I am awesome
+  - I can do it!
+  - I believe in myself
+  neutralDialogueLines:
   - I know I messed up, but I accept that
-  - I can fix that tomorrow
   - I'm not perfect, but I'm proud of who I am
+  - I'm okay
+  - I'm okay...
+  goodDialogueLines:
+  - I can fix that tomorrow
   - I accept who I am
+  - I know,  I will worry about that later
+  - I feel I can do it
   badDialogueLines:
   - You're right, I'm wrong
   - Why do I even bother
@@ -6290,7 +6300,7 @@ RectTransform:
   m_GameObject: {fileID: 1009098728}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5369313, y: 3.2215881, z: 1.0738628}
+  m_LocalScale: {x: 0.25, y: 3, z: 1.0738628}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 881750622}
@@ -6298,7 +6308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.37461317, y: 142.18164}
+  m_AnchoredPosition: {x: 0.37461317, y: 189}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009098730
@@ -7236,7 +7246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1125918949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8263,7 +8273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reflection
+  m_text: Self Reflection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9484,7 +9494,7 @@ RectTransform:
   m_GameObject: {fileID: 1458429739}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5369314, y: 3.2215886, z: 1.0738628}
+  m_LocalScale: {x: 0.25, y: 3, z: 1.0738628}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24925233}
@@ -9492,7 +9502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: -14}
+  m_AnchoredPosition: {x: 387, y: -14}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1465064324
@@ -10414,7 +10424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7660445
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10422,7 +10432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.6427876
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10434,7 +10444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10490,7 +10500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
-  lookEdgeThreshold: 100
+  lookEdgeThreshold: 75
+  xRotation: 0
+  zRotation: 80
   playerCamera: {fileID: 1571311688}
   lookUpIndicator: {fileID: 1009098728}
   lookDownIndicator: {fileID: 297161521}
@@ -12140,6 +12152,7 @@ MonoBehaviour:
   - I had a disagreement with my friend but we talked and got over it
   - I dropped my phone but luckily I caught it before it hit the ground
   - I can't wait for tomorrow! I'll get to see my friend again!
+  neutralInfoJournalTexts: []
 --- !u!4 &1874729902
 Transform:
   m_ObjectHideFlags: 0
@@ -12629,7 +12642,7 @@ RectTransform:
   m_GameObject: {fileID: 1947505221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5369314, y: 3.2215886, z: 1.0738628}
+  m_LocalScale: {x: 0.25, y: 3, z: 1.0738628}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1770451322}
@@ -12637,7 +12650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -348, y: -14}
+  m_AnchoredPosition: {x: -388, y: -14}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1956435741
