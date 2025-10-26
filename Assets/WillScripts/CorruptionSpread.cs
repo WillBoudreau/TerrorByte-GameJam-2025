@@ -25,7 +25,9 @@ public class CorruptionSpread : MonoBehaviour
         {
             Debug.Log("Current Corruption Radius: " + currentCorruptionRadius);
             currentCorruptionRadius += corruptionRate;
-            Collider[] affectedObjects = Physics.OverlapSphere(corruptionSource.position, currentCorruptionRadius, corruptionLayerMask);
+            Debug.Log("Increased Corruption Radius to: " + currentCorruptionRadius);
+            Collider[] affectedObjects = Physics.OverlapSphere(corruptionSource.position, currentCorruptionRadius);
+            Debug.Log("Number of Affected Objects: " + affectedObjects.Length);
             foreach (Collider obj in affectedObjects)
             {
                 for (int i = 0; i < corruptionEffectsPerSpread; i++)

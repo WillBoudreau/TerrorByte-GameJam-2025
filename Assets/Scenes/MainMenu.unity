@@ -443,8 +443,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   corruptionRate: 1
-  maxCorruptionRadius: 9
-  currentCorruptionRadius: 1
+  maxCorruptionRadius: 6
+  currentCorruptionRadius: 3
   maxCorruptionEffects: 100
   corruptionEffectsPerSpread: 5
 --- !u!114 &29212844
@@ -463,7 +463,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 0}
   infoJournalBehaviour: {fileID: 0}
   informationPanel: {fileID: 0}
-  maxDays: 1
+  maxDays: 4
   numOfDaysPassed: 0
 --- !u!1 &40417591
 GameObject:
