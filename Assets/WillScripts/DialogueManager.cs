@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;// Reference to the dialogue text UI element
     public GameObject dialoguePanel;// Reference to the dialogue panel UI element
     [SerializeField] private string[] currentDialogueLine = new string[4];// Current dialogue line being displayed
+    [SerializeField] private List<string> greatDialogueLines;// List of dialogue lines for great morality
+    [SerializeField] private List<string> neutralDialogueLines;// List of dialogue lines for neutral morality
     [SerializeField] private List<string> goodDialogueLines;// List of dialogue lines for good morality
     [SerializeField] private List<string> badDialogueLines;// List of dialogue lines for bad morality
     [Header("Dialogue Choices/Texts")]
