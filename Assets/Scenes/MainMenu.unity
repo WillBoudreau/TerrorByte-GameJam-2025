@@ -6836,7 +6836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1125918949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9674,7 +9674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.32
+      value: 0.443
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9682,11 +9682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.6427876
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6427876
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalRotation.z
@@ -9694,11 +9694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8220439336217453769, guid: 42800ba79fcf7cd47bb65c4dc67312b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -9755,8 +9755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   lookEdgeThreshold: 75
-  xRotation: 0
-  zRotation: 80
+  xRotation: -80
+  zRotation: 0
   playerCamera: {fileID: 1571311688}
   lookUpIndicator: {fileID: 1009098728}
   lookDownIndicator: {fileID: 297161521}
