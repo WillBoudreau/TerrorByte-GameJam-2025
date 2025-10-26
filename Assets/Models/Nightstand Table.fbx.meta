@@ -3,7 +3,12 @@ guid: 69963ce01fa9e2d4192d2cb6f134c742
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nightstand Table
+    second: {fileID: 2100000, guid: 393772b72ea0ab849bd65cbd39440074, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
