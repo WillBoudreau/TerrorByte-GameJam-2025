@@ -9,14 +9,16 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;// Reference to the UIManager script
     public DialogueManager dialogueManager;// Reference to the DialogueManager script
     public InfoJournalBehaviour infoJournalBehaviour;// Reference to the InfoJournalBehaviour script
-    public int numOfDaysPassed = 0;// Tracks the number of days passed in the game
+    public InformationPanel informationPanel;// Reference to the InformationPanel script
     public int maxDays = 7;// Maximum number of days before game over
+    public int numOfDaysPassed = 0;// Current number of days passed
 
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         infoJournalBehaviour = FindObjectOfType<InfoJournalBehaviour>();
+        informationPanel = FindObjectOfType<InformationPanel>();
     }
 
     /// <summary>
@@ -30,11 +32,13 @@ public class GameManager : MonoBehaviour
         {
             if(dialogueManager.IsEvilPath())
             {
+                informationPanel.range = 0.5f;
                 Debug.Log("Game Over: Evil Path Reached Maximum Days.");
                 uiManager.TogglePanel("GameOver");
             }
             else
             {
+                informationPanel.range = 0.5f;
                 Debug.Log("Victory: Good Path Reached Maximum Days.");
                 uiManager.TogglePanel("Victory");
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class InformationPanel : MonoBehaviour
 {
     public GameObject uiPanel;// Reference to the UI panel to display
+    public float range;
     [SerializeField] private UIManager uiManager;
     private void Start()
     {
@@ -19,7 +20,7 @@ public class InformationPanel : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, range))
             {
                 Debug.Log("Raycast hit: " + hit.collider.name);
                 if (hit.collider.CompareTag("Interactable"))
