@@ -6,6 +6,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject optionsMenu;//panel for options
     public GameObject creditsMenu;//panel for credits
     public GameObject controlsMenu;//panel for controls
+    public GameObject startMenu;//panel for start menu
     public GameObject pauseMenu;//panel for pause menu (in game)
 
     private void Start()
@@ -18,6 +19,7 @@ public class ButtonManager : MonoBehaviour
         optionsMenu.SetActive(false);
         creditsMenu.SetActive(false);
         controlsMenu.SetActive(false);
+        startMenu.SetActive(false);
     }
 
     public void OnPlayButton()
@@ -51,6 +53,12 @@ public class ButtonManager : MonoBehaviour
         //Opens Controls Panel
         ClearMenus();
         controlsMenu.SetActive(true);
+    }
+
+    public void OnStartButton()
+    {
+        ClearMenus();
+        startMenu.SetActive(true);
     }
 
     public void OnBackButton()

@@ -30,6 +30,11 @@ public class InteractableOBJ : MonoBehaviour
 
         SetMaterial();
     }
+    void Update()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+    }
 
     /// <summary>
     /// Interact with the object
